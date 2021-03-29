@@ -1,0 +1,17 @@
+"use strict";
+exports.__esModule = true;
+var price;
+var price2 = 9.95;
+var name = 'John';
+var counter = 0;
+var x = 100, y = 200;
+var bin = 4;
+console.log(bin);
+var anotherBin = 2;
+console.log(anotherBin);
+var octal = 8;
+console.log(octal);
+var hexadecimal = 0XA;
+console.log(hexadecimal);
+var big = 9007199254740991n;
+console.log(big);
