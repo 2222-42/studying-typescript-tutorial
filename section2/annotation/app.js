@@ -1,22 +1,24 @@
+"use strict";
+exports.__esModule = true;
 var counter;
 counter = 1;
 // counter = 'Hello';
 var counter2 = 1;
 var counter3 = 0;
-var _name = 'John';
+var name = 'John';
 var age = 25;
 var active = true;
 var names = ['John', 'Jane', 'Peter', 'David', 'Mary'];
 var person;
 person = {
-    name: _name,
+    name: name,
     age: age
 };
 var greeting;
 greeting = function (name) {
     return "Hi " + name;
 };
-console.log(greeting(_name));
+console.log(greeting(name));
 function setCounter(max) {
     if (max === void 0) { max = 100; }
     counter = max;

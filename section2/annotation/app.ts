@@ -1,9 +1,10 @@
+export { };
 let counter: number;
 counter = 1;
 // counter = 'Hello';
 let counter2: number = 1;
 let counter3 = 0;
-let _name: string = 'John';
+let name: string = 'John';
 let age: number = 25;
 let active: boolean = true;
 
@@ -13,7 +14,7 @@ let person: {
     age: number
 };
 person = {
-    name: _name,
+    name: name,
     age: age,
 }
 
@@ -23,7 +24,7 @@ greeting = function (name: string) {
     return `Hi ${name}`;
 };
 
-console.log(greeting(_name));
+console.log(greeting(name));
 
 function setCounter(max = 100) {
     counter = max;

@@ -1,19 +1,20 @@
+export { };
 let box;
-console.log(typeof(box));
+console.log(typeof (box));
 box = "hello";
-console.log(typeof(box));
+console.log(typeof (box));
 box = 100;
 // undefined
 // string
 // number
 
-interface Product{
+interface Product {
     id: number,
     name: string,
     price: number
 }
 
-function getProduct(id: number) : Product{
+function getProduct(id: number): Product {
     return {
         id: id,
         name: `Awesome Gadget ${id}`,
