@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 function add(a, b) {
     if (typeof a === 'number' && typeof b === 'number') {
         return a + b;
@@ -9,4 +11,10 @@ function add(a, b) {
 }
 console.log(add(1, 2));
 console.log(add('Hello,', ' World!'));
-console.log(add(true, false));
+// if a: any and b: any, compiled successfully, but cause an error at runtime
+// console.log(add(true, false));
+var result;
+result = 10;
+result = 'Hi!';
+// Type 'boolean' is not assignable to type 'string | number'.
+// result = false;
