@@ -16,3 +16,8 @@ document.addEventListener('scroll', function (event) {
     // console.log(event.button);
     console.log('scrolled');
 })
+
+let list = document.querySelector('#list');
+while (list?.firstChild) {
+    list.removeChild(list.firstChild);
+}

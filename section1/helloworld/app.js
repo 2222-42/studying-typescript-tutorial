@@ -1,3 +1,4 @@
+// export { };
 var message = 'Hello, World!';
 var heading = document.createElement('h1');
 heading.textContent = message;
@@ -14,3 +15,7 @@ document.addEventListener('scroll', function (event) {
     // console.log(event.button);
     console.log('scrolled');
 });
+var list = document.querySelector('#list');
+while (list === null || list === void 0 ? void 0 : list.firstChild) {
+    list.removeChild(list.firstChild);
+}
