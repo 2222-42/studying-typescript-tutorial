@@ -27,12 +27,34 @@ class Person {
     public getFullName() {
         return `${this.firstName} ${this.lastName}`;
     }
+
+    describe(): string {
+        return `This is ${this.firstName} ${this.lastName}.`;
+    }
+}
+
+// Use the `extends` keyword to allow a class to inherit from another class.
+class Employee extends Person {
+    constructor(ssn: string, firstName: string, lastName: string, birthDate: Date, private jobTitle: string) {
+        super(ssn, firstName, lastName, birthDate);
+    }
+
+    // override
+    describe(): string {
+        // using the syntax super.methodInParentClass().
+        return super.describe() + `I'm a ${this.jobTitle}.`;
+    }
 }
 
 let person = new Person('171-28-0926', 'John', 'Doe', new Date(1991, 6, 17));
 console.log(person.getFullName());
+console.log(person.describe());
 // error TS2341: Property 'ssn' is private and only accessible within class 'Person'.
 // console.log(person.ssn);
 
 // error TS2540: Cannot assign to 'birthDate' because it is a read-only property.
 // person.birthDate = new Date(1992, 6, 18);
+
+let employee = new Employee('171-28-0926', 'John', 'Doe', new Date(1991, 6, 17), 'Web Developer');
+console.log(employee.getFullName());
+console.log(employee.describe());
