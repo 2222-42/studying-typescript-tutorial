@@ -53,6 +53,8 @@ var Employee = /** @class */ (function (_super) {
     function Employee(ssn, firstName, lastName, birthDate, jobTitle) {
         var _this = _super.call(this, ssn, firstName, lastName, birthDate) || this;
         _this.jobTitle = jobTitle;
+        // use the className.propertyName syntax.
+        Employee.headcount++;
         return _this;
     }
     // override
@@ -60,6 +62,15 @@ var Employee = /** @class */ (function (_super) {
         // using the syntax super.methodInParentClass().
         return _super.prototype.describe.call(this) + ("I'm a " + this.jobTitle + ".");
     };
+    /**
+     * static getHeadcount
+     * use the className.staticMethod() syntax
+     */
+    Employee.getHeadcount = function () {
+        return Employee.headcount;
+    };
+    // a static property is shared among all instances of a class.
+    Employee.headcount = 0;
     return Employee;
 }(Person));
 var person = new Person('171-28-0926', 'John', 'Doe', new Date(1991, 6, 17));
@@ -69,6 +80,9 @@ console.log(person.describe());
 // console.log(person.ssn);
 // error TS2540: Cannot assign to 'birthDate' because it is a read-only property.
 // person.birthDate = new Date(1992, 6, 18);
+console.log(Employee.getHeadcount());
 var employee = new Employee('171-28-0926', 'John', 'Doe', new Date(1991, 6, 17), 'Web Developer');
 console.log(employee.getFullName());
 console.log(employee.describe());
+var jane = new Employee('171-28-0927', 'Jane', 'Doe', new Date(1991, 6, 17), 'Back-end Developer');
+console.log(Employee.getHeadcount());

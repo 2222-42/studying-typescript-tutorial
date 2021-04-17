@@ -35,14 +35,28 @@ class Person {
 
 // Use the `extends` keyword to allow a class to inherit from another class.
 class Employee extends Person {
+    // a static property is shared among all instances of a class.
+    private static headcount: number = 0;
+    
     constructor(ssn: string, firstName: string, lastName: string, birthDate: Date, private jobTitle: string) {
         super(ssn, firstName, lastName, birthDate);
+
+        // use the className.propertyName syntax.
+        Employee.headcount++;
     }
 
     // override
     describe(): string {
         // using the syntax super.methodInParentClass().
         return super.describe() + `I'm a ${this.jobTitle}.`;
+    }
+
+    /**
+     * static getHeadcount
+     * use the className.staticMethod() syntax
+     */
+    public static getHeadcount() {
+        return Employee.headcount;
     }
 }
 
@@ -55,6 +69,9 @@ console.log(person.describe());
 // error TS2540: Cannot assign to 'birthDate' because it is a read-only property.
 // person.birthDate = new Date(1992, 6, 18);
 
+console.log(Employee.getHeadcount());
 let employee = new Employee('171-28-0926', 'John', 'Doe', new Date(1991, 6, 17), 'Web Developer');
 console.log(employee.getFullName());
 console.log(employee.describe());
+let jane = new Employee('171-28-0927', 'Jane', 'Doe', new Date(1991, 6, 17), 'Back-end Developer');
+console.log(Employee.getHeadcount());
