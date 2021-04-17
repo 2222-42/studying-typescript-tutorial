@@ -56,6 +56,8 @@ console.log(lowerCase('Hi', false));
 console.log(lowerCase('Hi', true));
 
 interface Json{
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#tojson_behavior
+    // toJSON(): string
     toSTRING(): string
 }
 
