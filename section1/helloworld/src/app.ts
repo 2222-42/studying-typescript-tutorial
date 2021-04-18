@@ -1,4 +1,3 @@
-export { };
 let message: string = 'Hello, World!';
 let heading = document.createElement('h1');
 heading.textContent = message;
@@ -11,6 +10,11 @@ const heading2 = document.querySelector('h1');
 console.log(heading2?.getAttribute);
 document.addEventListener('click', function (event) {
     console.log(event.button);
+    let input = document.querySelector('input[type="text"]') as HTMLInputElement;
+    console.log(input?.value);
+    let enteredText = (input as HTMLInputElement).value;
+    let input2 = <HTMLInputElement>document.querySelector('input[type="text"]');
+    console.log(input2?.value);
 })
 document.addEventListener('scroll', function (event) {
     // console.log(event.button);
@@ -21,3 +25,4 @@ let list = document.querySelector('#list');
 while (list?.firstChild) {
     list.removeChild(list.firstChild);
 }
+
