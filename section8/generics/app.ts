@@ -48,18 +48,45 @@ let randomEleStr: string;
 // error TS2322: Type 'number' is not assignable to type 'string'.
 // randomEleStr = getRandomElement(numbers);
 
+
+// Use `extends` keyword to constrain the type parameter to a specific type.
+
 // Generic functions with multiple types
 // function merge<U, V>(obj1: U, obj2: V): U & V
-function merge<U, V>(obj1: U, obj2: V) {
+// In order to denote the constraint, you use the `extends` keyword. 
+function merge<U extends object, V extends object>(obj1: U, obj2: V) {
     return {
         ...obj1,
         ...obj2
     }
 }
 
-let result = merge(
+let person = merge(
     { name: 'John' },
     { jobTitle: 'Frontend Developer' }
 );
 
-console.log(result);
+console.log(person);
+
+// error TS2345: Argument of type 'number' is not assignable to parameter of type 'object'.
+// let person2 = merge(
+//     { name: 'John' },
+//     25
+// );
+// console.log(person2); // { name: 'John' }
+
+
+// Use `extends keyof` to constrain a type that is the property of another object.
+
+// Type 'K' cannot be used to index type 'T'.
+// Add a constraint to `K` to ensure that it is a key of `T` as follows
+function prop<T, K extends keyof T>(obj: T, key: K) {
+    return obj[key];
+}
+
+let str = prop({ name: 'John' }, 'name');
+console.log(str);
+
+// error TS2345: Argument of type '"age"' is not assignable to parameter of type '"name"'
+// let age = prop({ name: 'John' }, 'age');
+// console.log(age);
